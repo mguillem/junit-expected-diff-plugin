@@ -1,0 +1,37 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+	xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"></script>
+<script type="text/javascript" src="${rootURL}/plugin/junit-expected-diff/diffview.js"></script>
+<link rel="stylesheet" type="text/css" href="${rootURL}/plugin/junit-expected-diff/diffview.css"/>
+<script type="text/javascript" src="${rootURL}/plugin/junit-expected-diff/difflib.js"></script>
+
+
+<script language="javascript">
+var $ = dojo.byId;
+var url = window.location.toString().split("#")[0];
+
+function diffUsingJS () {
+	var diffoutputdiv = $("diffoutput");
+	var expected = dojo.attr("diffoutput","expected");
+    if(expected != null) {
+	var base = difflib.stringAsLines(expected);
+	var newtxt = difflib.stringAsLines(dojo.attr("diffoutput","actual"));
+
+	var sm = new difflib.SequenceMatcher(base, newtxt);
+	var opcodes = sm.get_opcodes();
+	while (diffoutputdiv.firstChild) diffoutputdiv.removeChild(diffoutputdiv.firstChild);
+	diffoutputdiv.appendChild(diffview.buildView({ baseTextLines:base,
+												   newTextLines:newtxt,
+												   opcodes:opcodes,
+												   baseTextName:"Expected",
+												   newTextName:"Actual",
+												   contextSize:null,
+												   viewType: 0 }));
+    }
+}
+dojo.addOnLoad(function() {
+  diffUsingJS();
+});
+</script>
+</j:jelly>
