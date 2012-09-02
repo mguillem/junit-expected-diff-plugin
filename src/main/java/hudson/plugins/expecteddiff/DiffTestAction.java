@@ -7,11 +7,12 @@ import java.util.logging.Logger;
 
 public class DiffTestAction extends TestAction {
 
-    private static final String OUTPUT_DIV_START = "<div id=\"diffoutput\" style=\"width:100%\"";
+    private static final String OUTPUT_DIV_START = "<div id=\"diffoutput\" class=\"white\" style=\"width:100%\"";
     private static final String OUTPUT_DIV_END = "> </div>";
 
     private final TestObject testObject;
     private final Differ diffier = new Differ();
+    private final Formatter formatter = new Formatter();
     private final static Logger LOG = Logger.getLogger(DiffTestAction.class.getName());
 
     public DiffTestAction(TestObject testObject) {
@@ -32,12 +33,13 @@ public class DiffTestAction extends TestAction {
 
     @Override
     public String annotate(String text) {
-        LOG.info("Diff: " + text);
         Diff diff = diffier.diffy(text);
-        if (diff != null) {
-            return outputDiv(diff.getExpected(),diff.getActual()) + text;
-        } else
-            return text;
+        return diff != null ?
+                outputDiv(
+                        formatter.format(diff.getExpected()),
+                        formatter.format(diff.getActual())) + text
+                :
+                text;
     }
 
     private String outputDiv(String expected, String actual) {

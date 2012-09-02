@@ -11,7 +11,7 @@
     <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub" />
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-144.png" />
+    <link rel="apple-touch-icon`-precomposed" sizes="72x72" href="apple-touch-icon-144.png" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144.png" />
 
     

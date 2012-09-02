@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Differ {
-    private static final Pattern EXPECTED_WAS_PATTERN = Pattern.compile("expected:&lt;\\[(.*)\\]> but was:&lt;\\[(.*)\\]>");
+    private static final Pattern EXPECTED_WAS_PATTERN = Pattern.compile("expected:&lt;(.*)> but was:&lt;(.*)>");
 
     public Diff diffy(String text) {
         String trimmed = StringUtils.trim(text);
