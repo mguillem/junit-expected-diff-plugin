@@ -6,4 +6,5 @@
 <script type="text/javascript" src="${rootURL}/plugin/junit-expected-diff/prettydiff.js"></script>
 <script type="text/javascript" src="${rootURL}/plugin/junit-expected-diff/expected.js"></script>
 
+<div id="diffoutput" class="white" style="width:100%"> </div>
 </j:jelly>

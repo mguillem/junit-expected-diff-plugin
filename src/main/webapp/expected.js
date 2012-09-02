@@ -50,7 +50,7 @@ function beautify(source) {
 
 function prettyPrint(input) {
 
-    if (input.match(/^[a-zA-Z0-9._\$]+(@[a-zA-Z0-9._\$]*){0,1}\[.*]$/) != null)  {
+    if (input.match(/^([a-zA-Z0-9._\$]+(@[a-zA-Z0-9._\$]*){0,1}){0,1}\[.*]$/) != null)  {
     var start = input.indexOf('[');
     var prefix = input.substring(0, start);
     var ugly = input.substring(start).replace(/^\[/,"{").replace(/]$/,"}");
@@ -63,9 +63,9 @@ function prettyPrint(input) {
 
 function diffUsingJS () {
 	var diffoutputdiv = $("diffoutput");
-	var expected = dojo.attr("diffoutput","expected");
+	var expected = dojo.attr("comparison","expected");
     if(expected != null) {
-	var actual = dojo.attr("diffoutput","actual");
+	var actual = dojo.attr("comparison","actual");
 	while (diffoutputdiv.firstChild) diffoutputdiv.removeChild(diffoutputdiv.firstChild);
 
         var exp = prettyPrint(expected);
