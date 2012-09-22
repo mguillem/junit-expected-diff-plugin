@@ -17,7 +17,7 @@ Installation
   * Open job 'configure' page,
   * In 'Post-build' section click "Add-post-build-action",
   * Select from popup list "Addional test report features"
-  * Then check "Expected - actual"
+  * Then check "Expected - Actual diff view"
   * Save changes
 * Enjoy
 

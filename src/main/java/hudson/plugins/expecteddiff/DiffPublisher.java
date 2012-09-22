@@ -50,7 +50,7 @@ public class DiffPublisher extends TestDataPublisher {
 
         @Override
         public String getDisplayName() {
-            return "Expected - Actual";
+            return "Expected - Actual diff view";
         }
 
     }

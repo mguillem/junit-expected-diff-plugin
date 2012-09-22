@@ -11,15 +11,11 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>JUnit Expected Diff Plugin</name>
-    <url>http://wiki.jenkins-ci.org/display/JENKINS/JUnit+Expected+Diff+Plugin</url>
-    <issueManagement>
-        <system>JIRA</system>
-        <url>http://issues.jenkins-ci.org/secure/IssueNavigator.jspa?reset=true&amp;jqlQuery=project+%3D+HUDSON+AND+status+in+%28Open%2C+%22In+Progress%22%2C+Reopened%29+AND+component+%3D+%${project.artifactId}%27</url>
-    </issueManagement>
+    <url>https://github.com/usultis/junit-expected-diff-plugin</url>
 
 	<scm>
-		<connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
-		<developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
+		<connection>scm:git:git://github.com/usultis/junit-expected-diff-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com/usultis/junit-expected-diff-plugin.git</developerConnection>
 	</scm>
 
     <properties>

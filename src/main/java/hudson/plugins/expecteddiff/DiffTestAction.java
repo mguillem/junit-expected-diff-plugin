@@ -19,7 +19,7 @@ public class DiffTestAction extends TestAction {
     }
 
     public String getIconFileName() {
-        return "package.gif";
+        return null;
     }
 
     public String getUrlName() {
