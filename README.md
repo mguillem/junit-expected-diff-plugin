@@ -12,13 +12,16 @@ Integrates with the output of JUnit asserts and 'FEST Assert' asserts.
 
 Installation
 -----
-Download plugin, install in Jenkins,
-For every job with JUnit results do:
-  Open job 'configure' page,
-  In 'Post-build' section click "Add-post-build-action",
-  Select from popup list "Addional test report features"
-  Then check "Expected - actual"
+* Download plugin, install in Jenkins,
+* For every job with JUnit results do:
+* Open job 'configure' page,
+  * In 'Post-build' section click "Add-post-build-action",
+  * Select from popup list "Addional test report features"
+  * Then check "Expected - actual"
 
+
+Troubleshooting
+-----
 At the moment this plugin works only with Freestyle Jenkins jobs.
 For Maven2/3 jobs you just need to wait for https://issues.jenkins-ci.org/browse/JENKINS-5649.
 
