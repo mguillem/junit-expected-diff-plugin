@@ -14,10 +14,12 @@ Installation
 -----
 * Download plugin, install in Jenkins,
 * For every job with JUnit results do:
-* Open job 'configure' page,
+  * Open job 'configure' page,
   * In 'Post-build' section click "Add-post-build-action",
   * Select from popup list "Addional test report features"
   * Then check "Expected - actual"
+  * Save changes
+* Enjoy
 
 
 Troubleshooting
