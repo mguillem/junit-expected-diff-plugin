@@ -6,7 +6,7 @@ About
 -----
 A Jenkins plugin that adds diff view between the expected and the actual value.
 Picture says a thousand words:
-[![][Screenshot]][website]
+[![][Screenshot]]
 
 Integrates with the output of JUnit asserts and 'FEST Assert' asserts.
 
