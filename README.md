@@ -27,4 +27,4 @@ Troubleshooting
 At the moment this plugin works only with Freestyle Jenkins jobs.
 For Maven2/3 jobs you just need to wait for https://issues.jenkins-ci.org/browse/JENKINS-5649.
 
-[Screenshot]: https://sites.google.com/site/usultis/expected-actual.png?attredirects=0&d=1
+[Screenshot]: https://sites.google.com/site/usultis/expected-actual.png
