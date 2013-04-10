@@ -1,5 +1,4 @@
-
-JUnit Excepted Diff Plugin
+JUnit Expected Diff Plugin
 ==========
 
 About
