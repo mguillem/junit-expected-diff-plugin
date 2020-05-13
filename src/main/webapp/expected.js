@@ -65,38 +65,38 @@ function prettyPrint(input) {
 
 function match (stacktrace) {
     var patterns = [
-        /^[a-zA-Z]+[.][a-zA-Z]+[.][a-zA-Z]+:[\s\S]+expected:&lt;([\s\S]*)&gt;[\s\S]+but[\s\S]+was:&lt;([\s\S]*)&gt;/,
-        /^[a-zA-Z]+[.][a-zA-Z]+[.][a-zA-Z]+:[\s\S]+expected[\s\S]+same:&lt;([\s\S]*)&gt;[\s\S]+was[\s\S]+not:&lt;([\s\S]*)&gt;/,
-        /^[a-zA-Z]+[.][a-zA-Z]+[.][a-zA-Z]+:[\s\S]+Expected:[\s\S]+is[\s\S]+&lt;([\s\S]*)&gt;[\s\S]+got:[\s\S]*&lt;([\s\S]*)&gt;/,
-        /^[a-zA-Z]+[.][a-zA-Z]+[.][a-zA-Z]+:[\s\S]+Expected:[\s\S]+&lt;([\s\S]*)&gt;[\s\S]+got:[\s\S]*&lt;([\s\S]*)&gt;/,
-        /^[a-zA-Z]+[.][a-zA-Z]+[.][a-zA-Z]+:[\s\S]+expected[\s\S]+same[\s\S]+instance[\s\S]+but[\s\S]+found:&lt;([\s\S]*)&gt;[\s\S]+and:[\s\S]*&lt;([\s\S]*)&gt;/
-        ];
-        for (i=0; i<patterns.length; i++)
-  {
+    	/expected:[\s]*<([\s\S]*)>[\s]+but[\s]+was:[\s]*<([\s\S]*)>/];
+    for (i=0; i<patterns.length; i++) {
       var matched = stacktrace.match(patterns[i]);
       if (matched != null)
           return matched;
-  }
+    }
   return null;
 }
 
 function diffUsingJS () {
-    var stacktraceHeader = dojo.filter(dojo.query("h3"), function(header){ return header.innerHTML == 'Stacktrace'; })[0];
- 
-    var stacktrace = stacktraceHeader.nextSibling.innerHTML;
-    if(stacktrace != undefined) {
-        var matched = match(stacktrace);
-    	if (matched != null) {
-    	var expected = matched[1];
-	var actual = matched[2];
-    	var diffoutputdiv = $("diffoutput");
-	while (diffoutputdiv.firstChild) diffoutputdiv.removeChild(diffoutputdiv.firstChild);
+    var preNodes = dojo.query("#main-panel > pre");
 
-        var exp = prettyPrint(expected);
-        var act = prettyPrint(actual);
-	var output = prettydiff(apiParams(exp, act));
-	dojo.place(output[0],diffoutputdiv);
-	}
+    if (preNodes.length > 0) {
+        var matched;
+    	if (preNodes[1]) { // error message + stacktrace 
+    		matched = match(preNodes[1].textContent);
+    	}
+    	if (!matched) { // only error message
+    		matched = match(preNodes[0].textContent);
+    	}
+    	if (matched != null) {
+    		var expected = matched[1];
+    		var actual = matched[2];
+    		var diffoutputdiv = $("diffoutput");
+    		while (diffoutputdiv.firstChild)
+    			diffoutputdiv.removeChild(diffoutputdiv.firstChild);
+
+    		var exp = prettyPrint(expected).replace(/\r?\n/g, "<br/>\n");
+    		var act = prettyPrint(actual).replace(/\r?\n/g, "<br/>\n");
+    		var output = prettydiff(apiParams(exp, act));
+    		dojo.place(output[0], diffoutputdiv);
+    	}
     }
 }
 dojo.addOnLoad(function() {
