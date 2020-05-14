@@ -65,7 +65,10 @@ function prettyPrint(input) {
 
 function match (stacktrace) {
     var patterns = [
-    	/expected:[\s]*<([\s\S]*)>[\s]+but[\s]+was:[\s]*<([\s\S]*)>/];
+    	/expected:[\s]*<([\s\S]*)>[\s]+but[\s]+was:[\s]*<([\s\S]*)>/, // JUnit assertEquals
+    	/Expected:[\s]*"([\s\S]*)"[\s]+but:[\s]was[\s]+"([\s\S]*)"/, // Hamcrest
+    	/Expecting:[\s]*<"([\s\S]*)">[\s]+to be equal to:[\s]+<"([\s\S]*)">[\s]+but was not/ // AssertJ
+    	];
     for (i=0; i<patterns.length; i++) {
       var matched = stacktrace.match(patterns[i]);
       if (matched != null)
